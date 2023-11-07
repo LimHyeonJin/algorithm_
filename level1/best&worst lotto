@@ -1,0 +1,14 @@
+def solution(lottos, win_nums):
+    answer = []
+    answer_num = len([i for i in lottos if i in win_nums])
+    zero_count = 0
+    for i in lottos :
+        if i == 0:
+            zero_count += 1
+    best_place = 7 - (answer_num + zero_count)
+    worst_place = 7 - answer_num
+    
+    if (best_place > 6) : best_place = 6
+    if (worst_place > 6): worst_place = 6
+    answer = [best_place,worst_place]
+    return answer
